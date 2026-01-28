@@ -6,27 +6,16 @@
     <title>Dampak Konten Personal Pegawai pada Reputasi Lembaga</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- 
-    PALETTE: Vibrant Professional (Based on Blue/Gold/Teal)
-    Primary Blue: #1565C0
-    Accent Gold: #FFB300
-    Teal: #00BFA5
-    Dark: #263238
-    Light: #F5F7FA
-    White: #FFFFFF
-    -->
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1565C0',
-                        secondary: '#FFB300',
-                        accent: '#00BFA5',
+                        primary: '#84BD00',   /* Hijau Khas IZI */
+                        secondary: '#757575', /* Abu-abu Teks IZI */
+                        accent: '#558B2F',    /* Hijau Tua untuk variasi */
                         dark: '#263238',
                         light: '#F5F7FA',
                         surface: '#FFFFFF'
@@ -40,14 +29,14 @@
     </script>
 
     <style>
-        /* Chart Container Styling - MANDATORY for responsiveness */
+        /* Chart Container Styling */
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px; /* Constraint width */
+            max-width: 600px; 
             margin-left: auto;
             margin-right: auto;
-            height: 350px; /* Base height */
+            height: 350px; 
             max-height: 400px;
         }
 
@@ -57,7 +46,7 @@
             }
         }
 
-        /* Utility classes for visual flair */
+        /* Utility classes */
         .card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
@@ -66,7 +55,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
-        /* Custom timeline CSS (No SVG) */
+        /* Custom timeline CSS (Updated to Green) */
         .timeline-item {
             position: relative;
             padding-left: 2rem;
@@ -80,152 +69,117 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background-color: #1565C0;
+            background-color: #84BD00; /* Hijau IZI */
             border: 3px solid #fff;
         }
         .timeline-active {
-            border-left-color: #FFB300;
+            border-left-color: #558B2F; /* Accent Green */
         }
         .timeline-active::before {
-            background-color: #FFB300;
+            background-color: #558B2F;
         }
     </style>
-
-    <!-- 
-    DATA VISUALIZATION PLAN:
-    1. Hook Stats: HTML Big Numbers (Goal: Inform)
-    2. Trust Comparison: Bar Chart (Goal: Compare) - Who do people trust?
-    3. Official vs Personal: Radar Chart (Goal: Compare/Relationships) - Assessment on 4 axes.
-    4. Engagement Gap: Doughnut Chart (Goal: Compare) - Reach multiplier.
-    5. Risks: HTML/CSS Process Flow (Goal: Organize)
-    -->
-
-    <!-- 
-    CONFIRMATION: 
-    - NO SVG USED.
-    - NO MERMAID JS USED.
-    - Chart.js used for charts.
-    - 16-char label wrapping implemented.
-    - Multi-line tooltip callbacks implemented.
-    -->
 </head>
 <body class="bg-light text-dark font-sans leading-relaxed">
 
-    <!-- Navigation / Header -->
     <header class="bg-primary text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl md:text-2xl font-bold tracking-tight">Riset Dampak Konten Personal</h1>
             <nav class="hidden md:block text-sm font-medium">
-                <span class="opacity-80">Laporan Strategis hasil Riset</span>
+                <span class="opacity-90 bg-white text-primary px-3 py-1 rounded-full">Laporan Strategis</span>
             </nav>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-8 space-y-12">
 
-        <!-- SECTION 1: INTRODUCTION & EXECUTIVE SUMMARY -->
         <section id="intro" class="text-center max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-5xl font-black text-dark mb-6">Seberapa Penting Pegawai di Lembaga Turut Serta Membagikan Informasi Aktivitas Lembaga?</h2>
             <p class="text-lg md:text-xl text-gray-600 mb-8">
                 Studi menunjukkan pergeseran drastis dalam kepercayaan publik. Donor dan masyarakat kini lebih mempercayai "orang biasa" dan person pegawai dibandingkan akun resmi lembaga atau rilis pers formal.
             </p>
             
-            <!-- Big Stats Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card bg-white p-6 rounded-lg shadow-md border-t-4 border-secondary">
-                    <div class="text-5xl font-black text-secondary mb-2">8x</div>
+                <div class="card bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+                    <div class="text-5xl font-black text-primary mb-2">8x</div>
                     <h3 class="font-bold text-gray-800 text-lg uppercase tracking-wide">Engagement Lebih Tinggi</h3>
-                    <p class="text-sm text-gray-500 mt-2">Konten yang dibagikan oleh individu di dalam organisasi menunjukkan tingkat interaksi yang jauh lebih tinggi dibandingkan akun resmi lembaga.
-(Social Media Today).</p>
+                    <p class="text-sm text-gray-500 mt-2">Konten yang dibagikan oleh individu di dalam organisasi menunjukkan tingkat interaksi yang jauh lebih tinggi dibandingkan akun resmi lembaga.</p>
                 </div>
                 <div class="card bg-white p-6 rounded-lg shadow-md border-t-4 border-accent">
                     <div class="text-5xl font-black text-accent mb-2">561%</div>
                     <h3 class="font-bold text-gray-800 text-lg uppercase tracking-wide">Jangkauan (Reach)</h3>
-                    <p class="text-sm text-gray-500 mt-2">Pesan lembaga memiliki jangkauan yang jauh lebih luas ketika dibagikan melalui akun personal pegawai dibandingkan hanya melalui kanal resmi.
-(MSL Group).</p>
+                    <p class="text-sm text-gray-500 mt-2">Pesan lembaga memiliki jangkauan yang jauh lebih luas ketika dibagikan melalui akun personal pegawai dibandingkan hanya melalui kanal resmi.</p>
                 </div>
-                <div class="card bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
-                    <div class="text-5xl font-black text-primary mb-2">76%</div>
+                <div class="card bg-white p-6 rounded-lg shadow-md border-t-4 border-secondary">
+                    <div class="text-5xl font-black text-secondary mb-2">76%</div>
                     <h3 class="font-bold text-gray-800 text-lg uppercase tracking-wide">Faktor Kepercayaan</h3>
-                    <p class="text-sm text-gray-500 mt-2">Mayoritas publik menyatakan lebih percaya informasi yang dibagikan oleh individu nyata dibandingkan pesan iklan atau komunikasi institusional formal.
-(Adweek).</p>
+                    <p class="text-sm text-gray-500 mt-2">Mayoritas publik menyatakan lebih percaya informasi yang dibagikan oleh individu nyata dibandingkan pesan iklan atau komunikasi institusional formal.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: THE TRUST LANDSCAPE (Bar Chart) -->
         <section class="bg-white rounded-xl shadow-md p-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
                     <h3 class="text-2xl font-bold text-dark mb-4 border-l-4 border-primary pl-4">Siapa yang Dipercaya Publik Saat Ini?</h3>
                     <p class="text-gray-600 mb-4">
-                        Temuan dari <em>Edelman Trust Barometer</em> secara konsisten menunjukkan adanya pergeseran sumber kepercayaan publik.
-
-Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu yang dianggap dekat dengan realitas lapangan, seperti tim program dan rekan sejawat, dibandingkan pesan yang bersifat institusional atau formal.
+                        Temuan dari <em>Edelman Trust Barometer</em> secara konsisten menunjukkan adanya pergeseran sumber kepercayaan publik. Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu yang dianggap dekat dengan realitas lapangan.
                     </p>
                     <p class="text-gray-600 mb-4 font-semibold">
                         Implikasi: Akun resmi dan pimpinan lembaga tetap berperan penting sebagai rujukan dan representasi institusi.
                     </p>
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-100">
                         <span class="text-2xl mr-2">💡</span>
-                        <span class="text-sm text-blue-800 font-medium">Namun, cerita yang dibagikan oleh tim program dan individu di lapangan sering dipersepsikan publik sebagai bukti nyata dan pengalaman langsung, sehingga membangun kepercayaan secara lebih personal.</span>
+                        <span class="text-sm text-green-800 font-medium">Cerita yang dibagikan oleh tim program dan individu di lapangan sering dipersepsikan publik sebagai bukti nyata dan pengalaman langsung.</span>
                     </div>
                 </div>
                 <div>
-                     <!-- CHART 1: Trust Sources Comparison -->
-                    <div class="chart-container">
+                      <div class="chart-container">
                         <canvas id="trustChart"></canvas>
                     </div>
-                    <p class="text-center text-xs text-gray-400 mt-2">Sumber: Sintesis Data Edelman Trust Barometer (Trend Rata-rata 3 Tahun)</p>
+                    <p class="text-center text-xs text-gray-400 mt-2">Sumber: Sintesis Data Edelman Trust Barometer</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: OFFICIAL VS PERSONAL COMPARISON (Radar Chart) -->
         <section class="bg-white rounded-xl shadow-md p-8">
             <h3 class="text-2xl font-bold text-dark mb-6 text-center">Peran Komunikasi: Akun Resmi & Akun Personal</h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Visual Data -->
                 <div class="order-2 md:order-1">
-                    <!-- CHART 2: Radar Chart Comparison -->
                     <div class="chart-container">
                         <canvas id="comparisonRadar"></canvas>
                     </div>
                 </div>
 
-                <!-- Descriptive Analysis -->
                 <div class="order-1 md:order-2 space-y-6">
                     <div>
-                        <h4 class="text-xl font-bold text-primary mb-2">1. Akun Resmi Lembaga</h4>
+                        <h4 class="text-xl font-bold text-secondary mb-2">1. Akun Resmi Lembaga (Abu-abu)</h4>
                         <ul class="list-disc pl-5 text-gray-600 space-y-1">
                             <li><strong>Kelebihan:</strong> Pesan terkontrol, aman, branding konsisten, otoritas tinggi.</li>
                             <li><strong>Kekurangan:</strong> Algoritma membatasi jangkauan organik (pay-to-play), interaksi cenderung kaku/formal.</li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-accent mb-2">2. Akun Personal Pegawai</h4>
+                        <h4 class="text-xl font-bold text-primary mb-2">2. Akun Personal Pegawai (Hijau)</h4>
                         <ul class="list-disc pl-5 text-gray-600 space-y-1">
-                            <li><strong>Kelebihan:</strong> Jangkauan organik tinggi (algoritma suka interaksi personal), kepercayaan tinggi, emosional.</li>
+                            <li><strong>Kelebihan:</strong> Jangkauan organik tinggi, kepercayaan tinggi, emosional.</li>
                             <li><strong>Kekurangan:</strong> Risiko pesan tidak standar, potensi oversharing.</li>
                         </ul>
                     </div>
-                    <div class="mt-6 p-4 bg-gray-50 rounded border-l-4 border-secondary">
+                    <div class="mt-6 p-4 bg-gray-50 rounded border-l-4 border-primary">
                         <p class="font-bold text-dark">Kesimpulan Data:</p>
-                        <p class="text-sm text-gray-600">Akun membangun <span class="font-bold text-accent">Fondasi</span>, Aku Personal Mempeluas <span class="font-bold text-primary">Resonansi</span>.</p>
+                        <p class="text-sm text-gray-600">Akun Resmi membangun <span class="font-bold text-secondary">Fondasi</span>, Akun Personal Memperluas <span class="font-bold text-primary">Resonansi</span>.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 4: RISKS & MITIGATION (Doughnut & Flow) -->
         <section class="grid grid-cols-1 md:grid-cols-12 gap-8">
             
-            <!-- Left: Risk Visualization -->
             <div class="md:col-span-5 bg-white rounded-xl shadow-md p-6">
                 <h3 class="text-xl font-bold text-dark mb-4">Area yang Perlu Dikelola Bersama</h3>
                 <p class="text-sm text-gray-500 mb-6">Aspek yang perlu diperhatikan saat dokumentasi dan cerita personal mulai dibiasakan.</p>
-                <!-- CHART 3: Risk Distribution -->
                 <div class="chart-container" style="height: 300px;">
                     <canvas id="riskChart"></canvas>
                 </div>
@@ -234,96 +188,85 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
                 </div>
             </div>
 
-            <!-- Right: Textual Analysis of Risks -->
             <div class="md:col-span-7 bg-white rounded-xl shadow-md p-6">
                 <h3 class="text-xl font-bold text-dark mb-6">Detail Risiko & Batasan Etika</h3>
                 
                 <div class="space-y-6">
                     <div class="flex items-start">
-                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-xl">⚠️</div>
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-xl">⚠️</div>
                         <div class="ml-4">
                             <h4 class="text-lg font-bold text-gray-800">Konsistensi Pesan & Konteks</h4>
-                            <p class="text-sm text-gray-600">Cerita personal perlu tetap selaras dengan nilai dan semangat lembaga, tanpa menghilangkan sudut pandang individu. <br><span class="text-primary font-medium">Solusi:</span> Buat panduan "Do's and Don'ts" sederhana, bukan larangan kaku.</p>
+                            <p class="text-sm text-gray-600">Cerita personal perlu tetap selaras dengan nilai dan semangat lembaga. <br><span class="text-primary font-medium">Solusi:</span> Buat panduan "Do's and Don'ts" sederhana.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start">
-                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-xl">🛡️</div>
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-xl">🛡️</div>
                         <div class="ml-4">
-                            <h4 class="text-lg font-bold text-gray-800">Privasi Penerima Manfaat (Beneficiaries)</h4>
-                            <p class="text-sm text-gray-600">Dokumentasi perlu menjaga martabat, keamanan, dan hak privasi penerima manfaat, terutama kelompok rentan. <br><span class="text-primary font-medium">Solusi:</span> Pelatihan wajib tentang <em>Informed Consent</em> dan Kode Etik Fotografi.</p>
+                            <h4 class="text-lg font-bold text-gray-800">Privasi Penerima Manfaat</h4>
+                            <p class="text-sm text-gray-600">Dokumentasi perlu menjaga martabat, keamanan, dan hak privasi penerima manfaat. <br><span class="text-primary font-medium">Solusi:</span> Pelatihan wajib tentang <em>Informed Consent</em>.</p>
                         </div>
                     </div>
 
                     <div class="flex items-start">
-                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-xl">⏳</div>
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-xl">⏳</div>
                         <div class="ml-4">
                             <h4 class="text-lg font-bold text-gray-800">Produktivitas Kerja</h4>
-                            <p class="text-sm text-gray-600">Dokumentasi dimaknai sebagai bagian dari proses kerja, bukan aktivitas terpisah yang mengganggu tugas utama. <br><span class="text-primary font-medium">Solusi:</span> Fokus pada hasil (output), dan jadikan dokumentasi sebagai bagian dari uraian tugas (bukan selingan).</p>
+                            <p class="text-sm text-gray-600">Dokumentasi dimaknai sebagai bagian dari proses kerja, bukan aktivitas terpisah yang mengganggu. <br><span class="text-primary font-medium">Solusi:</span> Fokus pada hasil (output).</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 5: PRACTICAL IMPLICATIONS & STRATEGY -->
         <section class="bg-dark text-white rounded-xl shadow-2xl p-8 md:p-12 overflow-hidden relative">
-            <!-- Decorative circle -->
-            <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 rounded-full bg-white opacity-10"></div>
+            <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 rounded-full bg-white opacity-5"></div>
 
-            <h2 class="text-3xl font-bold mb-8 text-center text-secondary">Arah Strategis Komunikasi Lembaga</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center text-primary">Arah Strategis Komunikasi Lembaga</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Column 1: Why Encourage It -->
                 <div>
-                    <h3 class="text-xl font-bold text-accent mb-4 border-b border-gray-600 pb-2">Apakah Perlu Mendorong Personal Pegawai?</h3>
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-gray-600 pb-2">Apakah Perlu Mendorong Personal Pegawai?</h3>
                     <p class="text-gray-300 mb-6 text-lg">
-                        <strong class="text-white">YA, SANGAT PERLU.</strong>
+                        <strong class="text-primary">YA, SANGAT PERLU.</strong>
                     </p>
                     <p class="text-gray-400 text-sm mb-4">
                         Di era algoritma modern, mengandalkan akun resmi saja tidak cukup. Person pegawai adalah aset komunikasi terbesar yang belum dimanfaatkan (untapped asset).
                     </p>
-                    <div class="bg-white bg-opacity-10 p-4 rounded-lg">
-                        <p class="font-bold text-secondary text-sm">Prinsip Utama:</p>
-                        <p class="text-gray-300 text-sm italic">"Humanize the Brand." Cerita personal pegawai membantu publik memahami mengapa sebuah kerja dilakukan—bukan hanya apa yang dikerjakan lembaga.</p>
+                    <div class="bg-white bg-opacity-5 p-4 rounded-lg">
+                        <p class="font-bold text-primary text-sm">Prinsip Utama:</p>
+                        <p class="text-gray-300 text-sm italic">"Humanize the Brand." Cerita personal pegawai membantu publik memahami mengapa sebuah kerja dilakukan.</p>
                     </div>
                 </div>
 
-                <!-- Column 2: The Checklist -->
                 <div>
-                    <h3 class="text-xl font-bold text-accent mb-4 border-b border-gray-600 pb-2">Langkah Taktis (Action Plan)</h3>
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-gray-600 pb-2">Langkah Taktis (Action Plan)</h3>
                     <ul class="space-y-4">
                         <li class="flex items-center">
-                            <span class="h-6 w-6 flex items-center justify-center bg-green-500 rounded-full text-xs mr-3">✓</span>
-                            <span class="text-gray-200 text-sm"><strong>Buat Social Media Playbook:</strong> Panduan etika (bukan aturan kaku) tentang nada bicara dan privasi klien.</span>
+                            <span class="h-6 w-6 flex items-center justify-center bg-primary text-white rounded-full text-xs mr-3">✓</span>
+                            <span class="text-gray-300 text-sm"><strong>Buat Social Media Playbook:</strong> Panduan etika tentang nada bicara dan privasi klien.</span>
                         </li>
                         <li class="flex items-center">
-                            <span class="h-6 w-6 flex items-center justify-center bg-green-500 rounded-full text-xs mr-3">✓</span>
-                            <span class="text-gray-200 text-sm"><strong>Sediakan Aset Visual:</strong> Bank foto/video berkualitas yang BISA dipakai personal pegawai untuk postingan pribadi mereka.</span>
+                            <span class="h-6 w-6 flex items-center justify-center bg-primary text-white rounded-full text-xs mr-3">✓</span>
+                            <span class="text-gray-300 text-sm"><strong>Sediakan Aset Visual:</strong> Bank foto/video berkualitas.</span>
                         </li>
                         <li class="flex items-center">
-                            <span class="h-6 w-6 flex items-center justify-center bg-green-500 rounded-full text-xs mr-3">✓</span>
-                            <span class="text-gray-200 text-sm"><strong>Apresiasi:</strong> Repost konten Person pegawai di akun resmi (validasi) atau berikan insentif internal untuk "Best Storyteller".</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="h-6 w-6 flex items-center justify-center bg-green-500 rounded-full text-xs mr-3">✓</span>
-                            <span class="text-gray-200 text-sm"><strong>Pelatihan LinkedIn/IG:</strong> Ajarkan Person pegawai cara membangun personal branding.</span>
+                            <span class="h-6 w-6 flex items-center justify-center bg-primary text-white rounded-full text-xs mr-3">✓</span>
+                            <span class="text-gray-300 text-sm"><strong>Apresiasi:</strong> Repost konten Person pegawai di akun resmi (validasi).</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="text-center text-gray-500 text-xs py-8">
-            <p>&copy; 2026 Internal Strategic Brief. Generated based on industry best practices (Edelman, LinkedIn, SproutSocial).Corsec IZI</p>
+            <p>&copy; 2026 Internal Strategic Brief. Corsec IZI</p>
         </footer>
 
     </main>
 
-    <!-- SCRIPTS FOR CHARTS -->
     <script>
-        // --- UTILITY: Label Wrapping Logic (Mandatory) ---
+        // --- UTILITY: Label Wrapping Logic ---
         function wrapLabel(label, maxChar = 16) {
             if (label.length <= maxChar) return label;
             const words = label.split(' ');
@@ -342,7 +285,7 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
             return lines;
         }
 
-        // --- UTILITY: Tooltip Callback (Mandatory) ---
+        // --- UTILITY: Tooltip Callback ---
         const commonTooltipOptions = {
             callbacks: {
                 title: function(tooltipItems) {
@@ -357,7 +300,7 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
             }
         };
 
-        // --- CHART 1: Trust Sources (Bar Chart) ---
+        // --- CHART 1: Trust Sources (Bar Chart) - UPDATED COLORS ---
         const ctxTrust = document.getElementById('trustChart').getContext('2d');
         const trustLabelsRaw = ["Technical Expert (Pegawai Program)", "A Person Like Yourself (Rekan)", "Akun Resmi (Brand)", "CEO / Direktur", "Influencer Berbayar"];
         const trustLabelsProcessed = trustLabelsRaw.map(l => wrapLabel(l));
@@ -368,13 +311,13 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
                 labels: trustLabelsProcessed,
                 datasets: [{
                     label: 'Tingkat Kepercayaan (%)',
-                    data: [76, 71, 48, 44, 38], // Data approximation from Edelman
+                    data: [76, 71, 48, 44, 38], 
                     backgroundColor: [
-                        '#00BFA5', // Teal (High trust)
-                        '#00BFA5',
-                        '#1565C0', // Blue (Medium)
-                        '#1565C0',
-                        '#CFD8DC'  // Grey (Low)
+                        '#84BD00', // Green (IZI)
+                        '#84BD00',
+                        '#757575', // Grey (IZI Secondary)
+                        '#757575',
+                        '#CFD8DC'  // Light Grey
                     ],
                     borderRadius: 4
                 }]
@@ -382,12 +325,9 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                indexAxis: 'y', // Horizontal bar for better label readability
+                indexAxis: 'y', 
                 scales: {
-                    x: {
-                        beginAtZero: true,
-                        max: 100
-                    }
+                    x: { beginAtZero: true, max: 100 }
                 },
                 plugins: {
                     legend: { display: false },
@@ -396,7 +336,7 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
             }
         });
 
-        // --- CHART 2: Official vs Personal (Radar Chart) ---
+        // --- CHART 2: Official vs Personal (Radar Chart) - UPDATED COLORS ---
         const ctxRadar = document.getElementById('comparisonRadar').getContext('2d');
         const radarLabelsRaw = ["Kepercayaan (Trust)", "Jangkauan Organik", "Biaya (Cost)", "Kontrol Pesan", "Dampak Konversi", "Sisi Emosional"];
         const radarLabelsProcessed = radarLabelsRaw.map(l => wrapLabel(l));
@@ -407,24 +347,24 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
                 labels: radarLabelsProcessed,
                 datasets: [{
                     label: 'Akun Personal Pegawai',
-                    data: [90, 85, 10, 40, 80, 95], // High trust/reach, low control/cost
+                    data: [90, 85, 10, 40, 80, 95], 
                     fill: true,
-                    backgroundColor: 'rgba(255, 179, 0, 0.2)', // Gold transparent
-                    borderColor: '#FFB300',
-                    pointBackgroundColor: '#FFB300',
+                    backgroundColor: 'rgba(132, 189, 0, 0.3)', // Green transparent
+                    borderColor: '#84BD00', // IZI Green
+                    pointBackgroundColor: '#84BD00',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#FFB300'
+                    pointHoverBorderColor: '#84BD00'
                 }, {
                     label: 'Akun Resmi Lembaga',
-                    data: [50, 30, 80, 95, 45, 40], // High control/cost, low reach/trust
+                    data: [50, 30, 80, 95, 45, 40], 
                     fill: true,
-                    backgroundColor: 'rgba(21, 101, 192, 0.2)', // Blue transparent
-                    borderColor: '#1565C0',
-                    pointBackgroundColor: '#1565C0',
+                    backgroundColor: 'rgba(117, 117, 117, 0.2)', // Grey transparent
+                    borderColor: '#757575', // IZI Grey
+                    pointBackgroundColor: '#757575',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#1565C0'
+                    pointHoverBorderColor: '#757575'
                 }]
             },
             options: {
@@ -443,7 +383,7 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
             }
         });
 
-        // --- CHART 3: Risks (Doughnut Chart) ---
+        // --- CHART 3: Risks (Doughnut Chart) - UPDATED COLORS ---
         const ctxRisk = document.getElementById('riskChart').getContext('2d');
         const riskLabelsRaw = ["Konsistensi Pesan", "Perlindungan Privasi Penerima Manfaat", "Pengelolaan Waktu & Fokus Kerja", "Reputasi Pribadi dan Lembaga"];
         const riskLabelsProcessed = riskLabelsRaw.map(l => wrapLabel(l));
@@ -453,12 +393,12 @@ Dalam konteks komunikasi lembaga, publik cenderung lebih mempercayai individu ya
             data: {
                 labels: riskLabelsProcessed,
                 datasets: [{
-                    data: [40, 30, 20, 10], // Estimated weight of risks
+                    data: [40, 30, 20, 10], 
                     backgroundColor: [
-                        '#1565C0', // Blue
-                        '#00BFA5', // Teal
-                        '#FFB300', // Gold
-                        '#CFD8DC'  // Grey
+                        '#84BD00', // Primary Green
+                        '#558B2F', // Dark Green
+                        '#757575', // Grey
+                        '#BDBDBD'  // Light Grey
                     ],
                     hoverOffset: 4
                 }]
